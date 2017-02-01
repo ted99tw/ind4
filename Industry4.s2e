@@ -1,0 +1,173 @@
+{
+	"extensionName": "Industry4 Arduino mode only",
+	"description": "Industry4 conveyor",
+	"version": "1.13",
+	"author": "Ted Lien(ted99.tw@gmail.com)",
+	"homepage": "mearm.weebly.com",
+	"sort":0,
+	"javascriptURL":"js/Industry4.js",
+  "firmware":"1.0",
+  "extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"ledStrip pin %n leds %n %d.mode R%n G%n B%n",
+			"ledStrip",
+			"8",
+			"60",
+			"singleColor",
+			"255",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"#include \"ledstrip.h\"\n",
+				"def":"LEDSTRIP ledstrip({0}, {1});\n",
+				"work":"ledstrip.runFunction({2},{3},{4},{5});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n",
+			"MeArm",
+			"90",
+			"60",
+			"165",
+			"OPEN",
+			"X",
+			"1",
+			{
+				"setup":"meArm.begin();\n",
+				"inc":"#include \"MeArm.h\"\n",
+				"def":"MeArm meArm(11,10,9,5);\n",
+				"work":"meArm.angleTo({0},{1},{2},{3},{4},{5});\n",
+				"loop":""
+			}
+		],
+		[
+			"B",
+			"RFID found %s",
+			"RFID",
+			"1793080",
+			"Yes",
+			{
+				"setup":"Serial.begin(9600);\n",
+				"inc":"#include \"RFIDSerial.h\"\n",
+				"def":"READER rfid;\n",
+				"work":"rfid.tagFound(String({0}))",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"LCD Line %n display %s",
+			"LCD",
+			"0",
+			"Hello",
+			{
+				"setup":"lcd.begin();\n",
+				"inc":"#include \"LiquidCrystal_I2C.h\"\n",
+				"def":"LiquidCrystal_I2C lcd(0x3F,16,2);\n",
+				"work":"lcd.printLine({0},String({1}));\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"Stepper speed %d.speed %d.direction steps %n",
+			"Stepper",
+			"middle",
+			"clockwise",
+			"1600",
+			{
+				"setup":"",
+				"inc":"#include \"mystepper.h\"\n",
+				"def":"MyStepper myStepper(5, 4);\n //pulse pin, direction pin",
+				"work":"myStepper.go({0},{1},{2});\n",
+				"loop":""
+			}
+		]		
+	],
+	"menus": {
+		"digital":["HIGH","LOW"],
+		"mode":["singleColor","breathe","marquee","rainbow","rainbowmarquee"],
+		"status":["OPEN","CLOSE"],
+		"ptn":["X","Y","Z","none"],
+		"YesNo":["Yes","No"],
+		"speed":["very fast","fast","middle","slow","very slow"],
+		"direction":["clockwise","counter-clockwise"]
+	},
+	"values":{
+		"singleColor":0,
+		"breathe":1,
+		"marquee":2,
+		"rainbow":3,
+		"rainbowmarquee":4,
+		"OPEN":1,
+		"CLOSE":0,
+		"X":1,
+		"Y":2,
+		"Z":3,
+		"none":0,
+		"Yes":true,
+		"No":false,
+		"clockwise":1,
+		"counter-clockwise":2,
+		"very fast":1,
+		"fast":2,
+		"middle":3,
+		"slow":4,
+		"very slow":5
+	},
+	"translators":{
+		"zh_CN":{
+			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n":"机械手臂 基座%n度 右臂%n度 左臂%n度 夹爪%d.status 震动方向%d.ptn 停秒%n",
+			"OPEN":"开",
+			"CLOSE":"关",
+			"RFID found %s":"侦测到RFID%s",
+			"none":"無",
+			"Yes":"是",
+			"No":"否",
+			"ledStrip pin %n leds %n %d.mode R%n G%n B%n":"灯条 接脚 %n 颗数 %n 花样 %d.mode 红%n 绿%n 蓝%n",
+			"singleColor":"恒色",
+			"breathe":"呼吸灯",
+			"marquee":"跑马灯",
+			"rainbow":"彩虹",
+			"rainbowmarquee":"彩虹跑马灯",
+			"LCD Line %n display %s":"LCD 第 %n 列 显示 %s",
+						"clockwise":"顺时针",
+			"counter-clockwise":"逆时针",
+			"very fast":"最快",
+			"fast":"快",
+			"middle":"适中",
+			"slow":"慢",
+			"very slow":"最慢",
+			"Stepper speed %d.speed %d.direction steps %n":"步进马达 速度 %d.speed 方向 %d.direction 步数 %n"
+		},
+		"zh_TW":{
+			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n":"機械手臂 基座%n度 右臂%n度 左臂%n度 夾爪%d.status 震動方向%d.ptn 停秒%n",
+			"OPEN":"開",
+			"CLOSE":"關",
+			"RFID found %s":"偵測到RFID%s",
+			"none":"無",
+			"Yes":"是",
+			"No":"否",
+			"ledStrip pin %n leds %n %d.mode R%n G%n B%n":"燈條 接腳 %n 顆數 %n 花樣 %d.mode 紅%n 綠%n 藍%n",
+			"singleColor":"恆色",
+			"breathe":"呼吸燈",
+			"marquee":"跑馬燈",
+			"rainbow":"彩虹",
+			"rainbowmarquee":"彩虹跑馬燈",
+			"LCD Line %n display %s":"LCD 第 %n 列 顯示 %s",
+			"clockwise":"順時針",
+			"counter-clockwise":"逆時針",
+			"very fast":"最快",
+			"fast":"快",
+			"middle":"適中",
+			"slow":"慢",
+			"very slow":"最慢",
+			"Stepper speed %d.speed %d.direction steps %n":"步進馬達 速度 %d.speed 方向 %d.direction 步數 %n"
+		}
+	}
+}
