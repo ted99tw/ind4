@@ -1,9 +1,7 @@
 This is an extension of mBlock to be used in MeArm.Joystick Industry 4.0  
 website : MeArm.weebly.com (chinese)
 
-=============
 Description : 
-=============
 1. MeArm angle : action based on angles of the servo motors
 2. MeArm IK : action based on coordinate of x,y,z
   (0,0,0) is at the axis of base servo motor 
@@ -13,6 +11,7 @@ Description :
 6. LedStrip : WS2812
 
 developer : Ted Lien at ted99.tw@gmail.com
+
 
 【中文】
 這個擴展是給「機械手臂工業4.0」版使用的，內容如下：
@@ -30,3 +29,6 @@ https://www.instructables.com/id/MeArmJoystick-%E9%80%86%E9%81%8B%E5%8B%95%E5%AD
 5. 步進馬達 : 42H48 兩相混合式步進馬達
 
 6. LED燈條 : 基於WS2812晶片，實現全彩效果
+
+希望對大家有幫助 ted99.tw@gmail.com
+連宏城 行動創客學院執行長
