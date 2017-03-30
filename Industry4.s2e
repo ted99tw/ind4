@@ -11,24 +11,6 @@
 	"blockSpecs": [
 		[
 			"w",
-			"ledStrip pin %n leds %n %d.mode R%n G%n B%n",
-			"ledStrip",
-			"8",
-			"60",
-			"singleColor",
-			"255",
-			"0",
-			"0",
-			{
-				"setup":"",
-				"inc":"#include \"ledstrip.h\"\n",
-				"def":"LEDSTRIP ledstrip({0}, {1});\n",
-				"work":"ledstrip.runFunction({2},{3},{4},{5});\n",
-				"loop":""
-			}
-		],
-		[
-			"w",
 			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n",
 			"MeArm",
 			"90",
@@ -95,6 +77,24 @@
 		],
 		[
 			"w",
+			"LedStrip pin %n leds %n %d.mode R%n G%n B%n",
+			"LedStrip",
+			"8",
+			"60",
+			"singleColor",
+			"255",
+			"0",
+			"0",
+			{
+				"setup":"",
+				"inc":"#include \"ledstrip.h\"\n",
+				"def":"LEDSTRIP ledstrip({0}, {1});\n",
+				"work":"ledstrip.runFunction({2},{3},{4},{5});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
 			"Stepper speed %d.speed %d.direction steps %n",
 			"Stepper",
 			"middle",
@@ -150,7 +150,7 @@
 			"none":"無",
 			"Yes":"是",
 			"No":"否",
-			"ledStrip pin %n leds %n %d.mode R%n G%n B%n":"灯条 接脚 %n 颗数 %n 花样 %d.mode 红%n 绿%n 蓝%n",
+			"LedStrip pin %n leds %n %d.mode R%n G%n B%n":"灯条 接脚 %n 颗数 %n 花样 %d.mode 红%n 绿%n 蓝%n",
 			"singleColor":"恒色",
 			"breathe":"呼吸灯",
 			"marquee":"跑马灯",
@@ -175,7 +175,7 @@
 			"none":"無",
 			"Yes":"是",
 			"No":"否",
-			"ledStrip pin %n leds %n %d.mode R%n G%n B%n":"燈條 接腳 %n 顆數 %n 花樣 %d.mode 紅%n 綠%n 藍%n",
+			"LedStrip pin %n leds %n %d.mode R%n G%n B%n":"燈條 接腳 %n 顆數 %n 花樣 %d.mode 紅%n 綠%n 藍%n",
 			"singleColor":"恆色",
 			"breathe":"呼吸燈",
 			"marquee":"跑馬燈",
