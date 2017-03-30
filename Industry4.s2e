@@ -1,9 +1,9 @@
 {
 	"extensionName": "Industry4 Arduino mode only",
 	"description": "Industry4 conveyor",
-	"version": "1.13",
+	"version": "1.14",
 	"author": "Ted Lien(ted99.tw@gmail.com)",
-	"homepage": "mearm.weebly.com",
+	"homepage": "https://github.com/ted99tw/ind4",
 	"sort":0,
 	"javascriptURL":"js/Industry4.js",
   "firmware":"1.0",
@@ -42,6 +42,26 @@
 				"inc":"#include \"MeArm.h\"\n",
 				"def":"MeArm meArm(11,10,9,5);\n",
 				"work":"meArm.angleTo({0},{1},{2},{3},{4},{5});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"MeArmIK point x %n y %n z %n gripper %d.status speed %n wait %n adjust %n %n",
+			"MeArmIK",
+			"0",
+			"150",
+			"136",
+			"OPEN",
+			"3",
+			"0.2",
+			"0",
+			"0",
+			{
+				"setup":"ArmIK.begin(11,10,9,5,{6},{7});\n",
+				"inc":"#include \"MeArmIK.h\"\n",
+				"def":"MeArmIK ArmIK;\n",
+				"work":"ArmIK.gotoPoint({0},{1},{2},{3},{4},{5});\n",
 				"loop":""
 			}
 		],
@@ -123,6 +143,7 @@
 	"translators":{
 		"zh_CN":{
 			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n":"机械手臂 基座%n度 右臂%n度 左臂%n度 夹爪%d.status 震动方向%d.ptn 停秒%n",
+			"MeArmIK point x %n y %n z %n gripper %d.status speed %n wait %n adjust %n %n":"机械手臂 座标X%n Y%n Z%n 夹爪%d.status 速度%n 停秒%n 调整%n %n",
 			"OPEN":"开",
 			"CLOSE":"关",
 			"RFID found %s":"侦测到RFID%s",
@@ -146,7 +167,8 @@
 			"Stepper speed %d.speed %d.direction steps %n":"步进马达 速度 %d.speed 方向 %d.direction 步数 %n"
 		},
 		"zh_TW":{
-			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n":"機械手臂 基座%n度 右臂%n度 左臂%n度 夾爪%d.status 震動方向%d.ptn 停秒%n",
+			"MeArm angle base %n right %n left %n gripper %d.status shake %d.ptn wait seconds %n":"機械手臂 角度 基座%n度 右臂%n度 左臂%n度 夾爪%d.status 震動方向%d.ptn 停秒%n",
+			"MeArmIK point x %n y %n z %n gripper %d.status speed %n wait %n adjust %n %n":"機械手臂 座標X%n Y%n Z%n 夾爪%d.status 速度%n 停秒%n 調整%n %n",
 			"OPEN":"開",
 			"CLOSE":"關",
 			"RFID found %s":"偵測到RFID%s",
